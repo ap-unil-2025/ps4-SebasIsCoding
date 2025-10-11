@@ -160,6 +160,7 @@ def list_statistics(numbers):
     }
 
 def chunk_list(items, chunk_size):
+    clist = []
     """
     Split a list into chunks of specified size.
 
@@ -174,10 +175,9 @@ def chunk_list(items, chunk_size):
         >>> chunk_list([1, 2, 3, 4, 5, 6, 7], 3)
         [[1, 2, 3], [4, 5, 6], [7]]
     """
-    # TODO: Implement this function
-    # Hint: Use list slicing in a loop
-    pass
-
+    for i in range(0, len(items), chunk_size):
+        clist.append(items[i:i + chunk_size])
+    return clist
 
 # Test cases
 if __name__ == "__main__":
