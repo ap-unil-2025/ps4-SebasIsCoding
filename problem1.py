@@ -19,12 +19,11 @@ def create_number_list(start, end):
         >>> create_number_list(1, 5)
         [1, 2, 3, 4, 5]
     """
-    # TODO: Implement this function
-    # Hint: Use range() and convert to list
-    pass
+    return list(range(start, end + 1))
 
 
 def filter_even_numbers(numbers):
+    even_numbers = []
     """
     Return a new list containing only the even numbers.
 
@@ -38,9 +37,10 @@ def filter_even_numbers(numbers):
         >>> filter_even_numbers([1, 2, 3, 4, 5, 6])
         [2, 4, 6]
     """
-    # TODO: Implement this function
-    # You can use a loop or list comprehension
-    pass
+    for e in numbers:
+        if e % 2 == 0:
+            even_numbers.append(e)
+    return even_numbers
 
 
 def square_numbers(numbers):
