@@ -44,6 +44,7 @@ def filter_even_numbers(numbers):
 
 
 def square_numbers(numbers):
+    squared = []
     """
     Return a new list with each number squared.
 
@@ -57,9 +58,10 @@ def square_numbers(numbers):
         >>> square_numbers([1, 2, 3, 4])
         [1, 4, 9, 16]
     """
-    # TODO: Implement this function
-    # Hint: Try a list comprehension!
-    pass
+    for s in numbers:
+        squared.append(s**2)
+    return squared
+    
 
 
 def find_max_min(numbers):
@@ -76,12 +78,12 @@ def find_max_min(numbers):
         >>> find_max_min([3, 1, 4, 1, 5, 9, 2, 6])
         (9, 1)
     """
-    # TODO: Implement this function
-    # You can use max() and min() built-in functions
-    pass
+    return(max(numbers), min(numbers))
+        
 
 
 def remove_duplicates(items):
+    result = []
     """
     Remove duplicate items from a list while preserving order.
 
@@ -95,13 +97,15 @@ def remove_duplicates(items):
         >>> remove_duplicates([1, 2, 2, 3, 4, 3, 5])
         [1, 2, 3, 4, 5]
     """
-    # TODO: Implement this function
-    # Hint: You can use a loop and check if item is already in result list
-    # Or convert to set and back to list (but this doesn't preserve order)
-    pass
+    for item in items:
+        if item not in result:
+            result.append(item)
+    return result
 
 
 def merge_lists(list1, list2):
+    merge_list = []
+    max_len = max(len(list1), len(list2))
     """
     Merge two lists, alternating elements from each.
     If one list is longer, append remaining elements.
@@ -119,9 +123,12 @@ def merge_lists(list1, list2):
         >>> merge_lists([1, 2], [10, 20, 30, 40])
         [1, 10, 2, 20, 30, 40]
     """
-    # TODO: Implement this function
-    # Hint: Use a loop with index, handle different lengths
-    pass
+    for n in range(max_len):
+        if n < len(list1):
+            merge_list.append(list1[n])
+        if n < len(list2):
+            merge_list.append(list2[n])
+    return merge_list
 
 
 def list_statistics(numbers):
@@ -140,11 +147,17 @@ def list_statistics(numbers):
     """
     if not numbers:
         return None
+    
+    total = sum(numbers)
+    count = len(numbers)
+    average = total/count
+    maximum = max(numbers)
+    minimum = min(numbers)
 
-    # TODO: Implement this function
-    # Calculate and return a dictionary with the statistics
-    pass
-
+    return {
+        'sum' : total, 'average' : average,
+        'count' : count, 'max' : maximum, 'min' : minimum
+    }
 
 def chunk_list(items, chunk_size):
     """
